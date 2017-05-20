@@ -1,0 +1,101 @@
+API info: 
+
+
+Username: patrick@bspoke.com
+Security token (case-sensitive): g3s8qijaKqegfmigmtcZeJEJC
+
+http://rest.learncode.academy/api/reacttest/tweets
+
+
+
+/* import { combineReducers, createStore } from 'redux';
+
+const userReducer = (state={}, action) => {
+  switch(action.type) {
+    case 'CHANGE_NAME': {
+      state = {...state, name: action.payload}
+      break;
+    }
+     case 'CHANGE_AGE': {
+      state = {...state, age: action.payload}
+      break;
+    }
+  }
+  return state;
+};
+
+const tweetReducer = (state=[], action) => {
+  return state;
+};
+
+const reducers = combineReducers({
+  user: userReducer,
+  tweets: tweetReducer
+})
+
+const store = createStore(reducers);
+
+store.subscribe(() => {
+  console.log('store changed', store.getState())
+});
+
+
+store.dispatch({type: 'CHANGE_NAME', payload: 'Patrick'})
+store.dispatch({type: 'CHANGE_AGE', payload: 31})
+
+import { applyMiddleware, createStore } from 'redux';
+import axios from 'axios';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
+
+const initialState = {
+  fetching: false,
+  fetched: false,
+  users: [],
+  error: null
+}
+
+const reducer = (state=initialState, action) => {
+  switch (action.type) {
+    case 'FETCH_USERS_PENDING': {
+      return {...state, fetching: true}
+      break;
+    } 
+    case 'FETCH_USERS_FULFILLED': {
+      return {...state, fetching: false, fetched: true, users: action.payload}
+      break;
+    } 
+    case 'FETCH_USERS_REJECTED': {
+      return {...state, fetching: false, error: action.payload}
+      break;
+    }
+  }
+  return state
+}
+
+
+
+const middleware = applyMiddleware(promise(), thunk, logger)
+
+const store = createStore(reducer, middleware)
+
+store.dispatch({
+  type: 'FETCH_USERS',
+  payload: axios.get('http://rest.learncode.academy/api/wstern/users')
+}) */
+
+
+
+
+if PAGE_ALIAS === 'XXX' {
+	BTN_1 = {
+		color: blue,
+		height: 12px,
+		postion: blah,
+		site-alias: xyz
+	}
+}
+
+BTN_1.color 
+
