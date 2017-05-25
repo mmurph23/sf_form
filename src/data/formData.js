@@ -1,4 +1,4 @@
-const form = [ {
+const formData = {
 			dealerName: '', 
 			email: '',
 			phone: '',
@@ -16,6 +16,6 @@ const form = [ {
 			siblingSelection: [],
 			currentPetCount: 0,
 			description: ''
-}, ]
+}
 
-export default form; 
+export default formData; 

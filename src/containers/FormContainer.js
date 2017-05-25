@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import connect from 'react-redux';
 import CheckboxOrRadioGroup from '../components/CheckboxOrRadioGroup';
 import SingleInput from '../components/SingleInput';
 import TextArea from '../components/TextArea';
@@ -61,7 +62,8 @@ class FormContainer extends Component {
 			});
 	}
 
-/*Start handling functions*/
+
+//Start handling functions
 	handleFormSubmit(e) {
 		//submit logic goes here
 		e.preventDefault();
@@ -163,7 +165,7 @@ class FormContainer extends Component {
 	
 
 
-/*Start handling functions*/
+//Start handling functions
 
 	render() {
 		return (
@@ -232,42 +234,8 @@ class FormContainer extends Component {
 		          content={this.state.description}
 		          name={'currentPetInfo'}
 		          controlFunc={this.handleDescriptionChange}
-		          placeholder={'Please be thorough in your descriptions'} />  
-		        
-		    {/* 
-		    	<CheckboxOrRadioGroup
-		          title={'Which kinds of pets would you like to adopt?'}
-		          setName={'pets'}
-		          type={'checkbox'}
-		          controlFunc={this.handlePetSelection}
-		          options={this.state.petSelections}
-		          selectedOptions={this.state.selectedPets} />
-		        
-		        <CheckboxOrRadioGroup
-		          title={'Are you willing to adopt more than one pet if we have siblings for adoption?'}
-		          setName={'siblings'}
-		          controlFunc={this.handleSiblingsSelection}
-		          type={'radio'}
-		          options={this.state.siblingOptions}
-		          selectedOptions={this.state.siblingSelection} />
-		        
-		        <SingleInput
-		          inputType={'number'}
-		          title={'How many pets do you currently own?'}
-		          name={'currentPetCount'}
-		          controlFunc={this.handleCurrentPetCountChange}
-		          content={this.state.currentPetCount}
-		          placeholder={'Enter number of current pets'} />
-		        
-		        <TextArea
-		          title={'If you currently own pets, please write their names, breeds, and an outline of their personalities.'}
-		          rows={5}
-		          resize={false}
-		          content={this.state.description}
-		          name={'currentPetInfo'}
-		          controlFunc={this.handleDescriptionChange}
-		          placeholder={'Please be thorough in your descriptions'} /> 
-		      */}
+		          placeholder={'Please be thorough in your descriptions'} />
+		      
 
 				<input type="submit" value="Submit" className="btn btn-primary float-right"/>
 				<button className="btn btn-link float-left" onClick={this.handleClearForm}>Clear Form</button>
@@ -277,6 +245,8 @@ class FormContainer extends Component {
 		);
 	}
 
-}
+} 
+
 
 export default FormContainer;
+

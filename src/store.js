@@ -1,21 +1,34 @@
-import { applyMiddleware, createStore } from 'redux'
-import { syncHistoryWithStore } from 'react-router-redux';
-import { browserHistory } from 'react-router'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import logger from 'redux-logger'
+import { Provider } from 'react-redux'
+import { ConnectedRouter as Router, routerReducer, routerMiddleware } from 'react-router-redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+
 import thunk from 'redux-thunk'
-import promise from 'redux-promise-middleware'
+import createHistory from 'history/createBrowserHistory'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-import form from './data/formData'
-import rootReducer from './reducers/index'
+
+import formReducer from './reducers/formReducer'
+
+import formData from './data/formData'
+
+export const history = createHistory();
+const middleware = routerMiddleware(history);
 
 const defaultState = {
-	form,
-};
+	formData
+}
 
+const reducers = {
+	form: formReducer,
+	router: routerReducer
+}
 
-const store = createStore(rootReducer, defaultState);
-
-/*export const history = syncHistoryWithStore(browserHistory, store); */
+const reducer = combineReducers(reducers);
+const store = createStore(reducer, defaultState, composeWithDevTools(applyMiddleware(middleware, thunk)));
 
 export default store;
+
+
